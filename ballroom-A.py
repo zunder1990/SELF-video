@@ -11,7 +11,7 @@ camurl = 'rtsp://10.60.0.52:7447/5ac91bd5ec2e84e0ab7649cb_0'
 
 ballroom = "BallroomA"
 
-starttimes = ["8:00", "9:15", "13:00", "14:00", "15:01"]
+starttimes = ["8:00", "9:15", "13:00", "14:00", "15:16"]
 
 
 scope = ['https://spreadsheets.google.com/feeds',
@@ -26,7 +26,7 @@ def start():
 	#print worksheet_list
 	
 	
-	#currentdata = datetime.now().strftime('%m-%d')
+	#currentdate = datetime.now().strftime('%m-%d')
 	#print timestamp
 	checklist()
 
@@ -65,7 +65,8 @@ def googlesheetlookup():
 	ffmpegrecord(talkID)
 
 def ffmpegrecord(talkID):
-	print "would have started ffmpeg with file "+ talkID +".mkv"
+	#print "would have started ffmpeg with file "+ talkID +".mkv"
+	print """this is what would have been ran  fmpeg  -rtsp_transport tcp -i '"""+ camurl +"""' -i '""" + encoderurl + """' -filter_complex "[0]scale=iw/4:ih/4 [pip]; [1][pip]overlay=main_w-overlay_w-10:main_h-overlay_h-10" -y """+ talkID +""".mkv"""
 	time.sleep(20)#seconds to mock the time for ffmpeg to record
 	ffmpegpost(talkID)
 
