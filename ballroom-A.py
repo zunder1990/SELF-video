@@ -11,7 +11,7 @@ camurl = 'rtsp://10.60.0.52:7447/5ac91bd5ec2e84e0ab7649cb_0'
 
 ballroom = "BallroomA"
 
-starttimes = ["8:00", "9:15", "13:00", "14:00", "13:37"]
+starttimes = ["8:00", "9:15", "13:00", "14:00", "13:47"]
 
 
 scope = ['https://spreadsheets.google.com/feeds',
@@ -42,11 +42,18 @@ def googlesheetlookup():
 	talkdesc = worksheet.acell("""G""" + str(cell.row) + """ """).value
 	talkdate = worksheet.acell("""E""" + str(cell.row) + """ """).value
 	talktime = worksheet.acell("""F""" + str(cell.row) + """ """).value
+	talkID = worksheet.acell("""A""" + str(cell.row) + """ """).value
 	print "Speakers name = ", speakername
 	print "Talk title = ", talkname
 	print "Talk Desc = ", talkdesc
 	print "Talk date = ", talkdate
 	print "Talk time = ", talktime
+	print "Talk ID = ", talkID
+	#return talkID
+	ffmpeg(talkID)
+
+def ffmpeg(talkID):
+	print "would have started ffmpeg with file "+ talkID +".mkv"
 	
 def start():
 	#worksheet_list = gdspreadsheet.worksheets()
