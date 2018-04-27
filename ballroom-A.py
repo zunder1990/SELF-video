@@ -11,7 +11,7 @@ camurl = 'rtsp://10.60.0.52:7447/5ac91bd5ec2e84e0ab7649cb_0'
 
 ballroom = "BallroomA"
 
-starttimes = ["8:00", "9:15", "13:00", "14:00", "15:16"]
+starttimes = ["8:00", "9:15", "13:00", "14:00", "04-27-10:26"]
 
 
 scope = ['https://spreadsheets.google.com/feeds',
@@ -34,7 +34,8 @@ def start():
 
 #This will check the list to see if the current time matches a time in the list
 def checklist():
-	currenttime = datetime.now().strftime('%H:%M')
+	currenttime = datetime.now().strftime('%m-%d-%H:%M')
+	print "time now = ", currenttime
 	if currenttime in starttimes:
 			print "current time in list = ", currenttime
 			googlesheetlookup()
@@ -43,7 +44,7 @@ def checklist():
 	checklist()
 
 def googlesheetlookup():
-	currenttime = datetime.now().strftime('%H:%M')
+	currenttime = datetime.now().strftime('%m-%d-%H:%M')
 	cell = worksheet.find(currenttime)
 
 	#print("Found something at R%sC%s" % (cell.row, cell.col))
