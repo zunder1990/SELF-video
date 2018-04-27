@@ -83,7 +83,7 @@ def upload(talkID):
 	
 	speakername = worksheet.acell("""B""" + str(cell.row) + """ """).value
 	talkname = worksheet.acell("""C""" + str(cell.row) + """ """).value
-	talkdesc = worksheet.acell("""G""" + str(cell.row) + """ """).value
+	talkdesc = worksheet.acell("""F""" + str(cell.row) + """ """).value
 	print "Speakers name = ", speakername
 	print "Talk title = ", talkname
 	print "Talk Desc = ", talkdesc
